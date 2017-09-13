@@ -5,24 +5,13 @@ var exec = require('child_process').exec;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.htm');
-	console.log('get /');
-});
-
-app.get('/payload', function (req, res) {
-    res.sendStatus(200);
-	console.log('get /payload');
-});
-
 app.post('/payload', function (req, res) {
 	//verify that the payload is a push from the correct repo
 	//verify repository.name == 'wackcoon-device' or repository.full_name = 'DanielEgan/wackcoon-device'
-	let isNotEmpty = req.body.pusher.name =null ||req.body.repository.name
-	if(isNotEmpty){
-	console.log(req.body.pusher.name + ' just pushed to ' + req.body.repository.name);
-
+	//let isNotEmpty = req.body.pusher.name =null ||req.body.repository.name =null
+	//if(isNotEmpty){
+//	console.log(req.body.pusher.name + ' just pushed to ' + req.body.repository.name);
+	console.log(req.body)
 	console.log('pulling code from GitHub...');
 
 	// reset any changes that have been made locally
@@ -43,9 +32,9 @@ app.post('/payload', function (req, res) {
 
 res.sendStatus(200);
 res.end();
-	}else{
-		console.log('not github pull')
-	}
+	//}else{
+	//	console.log('not github pull')
+//	}
 });
 app.listen(8080, function () {
 	console.log('listening on port 8080')
