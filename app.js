@@ -19,24 +19,24 @@ app.get('/payload', function (req, res) {
 app.post('/payload', function (req, res) {
 	//verify that the payload is a push from the correct repo
 	//verify repository.name == 'wackcoon-device' or repository.full_name = 'DanielEgan/wackcoon-device'
-	console.log(req.body.pusher.name + ' just pushed to ' + req.body.repository.name);
+//	console.log(req.body.pusher.name + ' just pushed to ' + req.body.repository.name);
 
-	console.log('pulling code from GitHub...');
+//	console.log('pulling code from GitHub...');
 
 	// reset any changes that have been made locally
-	exec('git -C \Users\Phuong\Desktop\wackcoon-hook-master\wackcoon-hook-master reset --hard', execCallback);
+//	exec('git -C \Users\Phuong\Desktop\wackcoon-hook-master\wackcoon-hook-master reset --hard', execCallback);
 
 	// and ditch any files that have been added locally too
-	exec('git -C \Users\Phuong\Desktop\wackcoon-hook-master\wackcoon-hook-master clean -df', execCallback);
+//	exec('git -C \Users\Phuong\Desktop\wackcoon-hook-master\wackcoon-hook-master clean -df', execCallback);
 
 	// now pull down the latest
 	exec('git -C \Users\Phuong\Desktop\wackcoon-hook-master\wackcoon-hook-master pull -f', execCallback);
 
 	// and npm install with --production
-	exec('npm -C \Users\Phuong\Desktop\wackcoon-hook-master\wackcoon-hook-master install --production', execCallback);
+//	exec('npm -C \Users\Phuong\Desktop\wackcoon-hook-master\wackcoon-hook-master install --production', execCallback);
 
 	// and run tsc
-	exec('tsc', execCallback);
+//	exec('tsc', execCallback);
 
 
 res.sendStatus(200);
