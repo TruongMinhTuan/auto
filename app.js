@@ -19,6 +19,8 @@ app.get('/payload', function (req, res) {
 app.post('/payload', function (req, res) {
 	//verify that the payload is a push from the correct repo
 	//verify repository.name == 'wackcoon-device' or repository.full_name = 'DanielEgan/wackcoon-device'
+	let isNotEmpty = req.body.pusher.name =null ||req.body.repository.name
+	if(isNotEmpty){
 	console.log(req.body.pusher.name + ' just pushed to ' + req.body.repository.name);
 
 	console.log('pulling code from GitHub...');
@@ -41,9 +43,12 @@ app.post('/payload', function (req, res) {
 
 res.sendStatus(200);
 res.end();
+	}else{
+		console.log('not github pull')
+	}
 });
 app.listen(8080, function () {
-	console.log('listening on port 5000')
+	console.log('listening on port 8080')
 });
 
 function execCallback(err, stdout, stderr) {
