@@ -24,16 +24,16 @@ app.post('/payload', function (req, res) {
 	console.log('pulling code from GitHub...');
 
 	// reset any changes that have been made locally
-		exec('git -C \Users\Phuong\Desktop\wackcoon-hook-master\wackcoon-hook-master reset --hard', execCallback);
+		exec('git -C \Users\Phuong\Desktop\wackcoon-hook-master\wackcoon-hook-master reset --hard', execCallback +'resst');
 
 		// and ditch any files that have been added locally too
 	//	exec('git -C \Users\Phuong\Desktop\wackcoon-hook-master\wackcoon-hook-master clean -df', execCallback);
 
 		// now pull down the latest
-		exec('git -C \Users\Phuong\Desktop\wackcoon-hook-master\wackcoon-hook-master pull -f', execCallback);
+		exec('git -C \Users\Phuong\Desktop\wackcoon-hook-master\wackcoon-hook-master pull -f', execCallback+'pull');
 
 		// and npm install with --production
-		exec('npm -C \Users\Phuong\Desktop\wackcoon-hook-master\wackcoon-hook-master start', execCallback);
+		exec('npm -C \Users\Phuong\Desktop\wackcoon-hook-master\wackcoon-hook-master start', execCallback+'str');
 
 	// and run tsc
 //	exec('tsc', execCallback);
@@ -42,7 +42,7 @@ app.post('/payload', function (req, res) {
 res.sendStatus(200);
 res.end();
 });
-app.listen(5000, function () {
+app.listen(8080, function () {
 	console.log('listening on port 5000')
 });
 
