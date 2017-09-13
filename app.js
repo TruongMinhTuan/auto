@@ -24,16 +24,16 @@ app.post('/payload', function (req, res) {
 	console.log('pulling code from GitHub...');
 
 	// reset any changes that have been made locally
-	exec('git -C ~/Desktop/wackcoon-hook-master/wackcoon-hook-master reset --hard', execCallback);
+	exec('git -C~/Desktop/wackcoon-hook-master/wackcoon-hook-master reset --hard', execCallback);
 
 	// and ditch any files that have been added locally too
-	exec('git -C ~/Desktop/wackcoon-hook-master/wackcoon-hook-master clean -df', execCallback);
+	exec('git -C~/Desktop/wackcoon-hook-master/wackcoon-hook-master clean -df', execCallback);
 
 	// now pull down the latest
-	exec('git -C ~/Desktop/wackcoon-hook-master/wackcoon-hook-master pull -f', execCallback);
+	exec('git -C~/Desktop/wackcoon-hook-master/wackcoon-hook-master pull -f', execCallback);
 
 	// and npm install with --production
-	exec('npm -C ~/Desktop/wackcoon-hook-master/wackcoon-hook-master install --production', execCallback);
+	exec('npm -C~/Desktop/wackcoon-hook-master/wackcoon-hook-master install --production', execCallback);
 
 	// and run tsc
 	exec('tsc', execCallback);
